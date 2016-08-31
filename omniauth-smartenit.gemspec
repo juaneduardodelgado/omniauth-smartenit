@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'omniauth-oauth2'
   spec.add_runtime_dependency 'multi_json'
 
-  spec.add_development_dependency "bundler", "~> 1.3.5"
+  spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
 end
