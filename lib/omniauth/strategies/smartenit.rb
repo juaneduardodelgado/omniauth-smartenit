@@ -4,9 +4,11 @@ module OmniAuth
   module Strategies
     class Smartenit < OmniAuth::Strategies::OAuth2
       option :name, "smartenit"
-      option :client_options, { site: "https://api.smartenit.io/v2/oauth2" , request_path: "/dialog"}
+      option :client_options,
+             :site => 'https://api.smartenit.io/v2/',
+             :authorize_url => 'https://api.smartenit.io/v2/oauth2/dialog',
+             :token_url => 'https://api.smartenit.io/v2/oauth2/token'
       option :token_params, { parse: :json }
-      option :auth_token_params, { mode: :query, param_name: :token }
 
       uid { raw_info['id'] }
 
