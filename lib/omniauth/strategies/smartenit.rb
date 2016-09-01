@@ -29,7 +29,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('https://api.smartenit.io/v2/users/me').parsed["response"]
+        @raw_info ||= access_token.get('https://api.smartenit.io/v2/users/56f084a4abd086104ce22896').parsed["response"]
       end
     end
   end
