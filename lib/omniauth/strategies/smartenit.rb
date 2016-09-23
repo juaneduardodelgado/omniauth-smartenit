@@ -10,15 +10,14 @@ module OmniAuth
              :token_url => 'https://api.smartenit.io/v2/oauth2/token'
       option :token_params, { parse: :json }
 
-      uid { raw_info['id'] }
+      uid { raw_info['_id'] }
 
       info do
         {
-          name: raw_info["name"],
-          email: raw_info["email"],
-          image: raw_info["image_url"],
-          phone: raw_info["phone_number"],
-          sms: raw_info["sms"],
+          name: raw_info["profile.name"],
+          lastname: raw_info["profile.lastname"],
+          email: raw_info["username"],
+          image: raw_info["image_url"]
         }
       end
 
@@ -29,7 +28,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('https://api.smartenit.io/v2/users/56f084a4abd086104ce22896').parsed["response"]
+        @raw_info ||= access_token.get('https://api.smartenit.io/v2/users/me').parsed["data"]
       end
     end
   end
